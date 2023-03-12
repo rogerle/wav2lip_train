@@ -1,3 +1,9 @@
 /venv/
 /Wav2Lip/
 /wave2lip/
+/checkpoints/lipsync_expert.pth
+/face_detection/sfd/s3fd.pth
+/checkpoints/wav2lip.pth
+/checkpoints/wav2lip_gan.pth
+/face_detection/sfd/s3fd.pth
+/checkpoints/visual_quality_disc.pth
