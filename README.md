@@ -36,14 +36,14 @@ git clone https://gitee.com/sparkle__code__guy/wave2lip
 |  Wav2Lip + GAN	|Slightly inferior lip-sync, but better visual quality	|[wavlip+GAN](https://gitee.com/link?target=https%3A%2F%2Fiiitaphyd-my.sharepoint.com%2F%3Au%3A%2Fg%2Fpersonal%2Fradrabha_m_research_iiit_ac_in%2FEdjI7bZlgApMqsVoEUUXpLsBxqXbn5z8VTmoxp55YNDcIA%3Fe%3Dn9ljGW)|
 |  Expert Discriminator	|Weights of the expert discriminator	|[Expert Discriminator](https://iiitaphyd-my.sharepoint.com/personal/radrabha_m_research_iiit_ac_in/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fradrabha%5Fm%5Fresearch%5Fiiit%5Fac%5Fin%2FDocuments%2FWav2Lip%5FModels%2Flipsync%5Fexpert%2Epth&parent=%2Fpersonal%2Fradrabha%5Fm%5Fresearch%5Fiiit%5Fac%5Fin%2FDocuments%2FWav2Lip%5FModels&ga=1)|
 
-2. 下载人脸识别的[re-trained model](https://gitee.com/link?target=https%3A%2F%2Fwww.adrianbulat.com%2Fdownloads%2Fpython-fan%2Fs3fd-619a316812.pth) 到`face_detection/detection/sfd/s3fd.pth`下。如果不能下载试试这个[链接](https://gitee.com/link?target=https%3A%2F%2Fiiitaphyd-my.sharepoint.com%2F%3Au%3A%2Fg%2Fpersonal%2Fprajwal_k_research_iiit_ac_in%2FEZsy6qWuivtDnANIG73iHjIBjMSoojcIV0NULXV-yiuiIg%3Fe%3DqTasa8)
+2. 下载人脸识别的[pre-trained model](https://gitee.com/link?target=https%3A%2F%2Fwww.adrianbulat.com%2Fdownloads%2Fpython-fan%2Fs3fd-619a316812.pth) 到`face_detection/detection/sfd/s3fd.pth`下。如果不能下载试试这个[链接](https://gitee.com/link?target=https%3A%2F%2Fiiitaphyd-my.sharepoint.com%2F%3Au%3A%2Fg%2Fpersonal%2Fprajwal_k_research_iiit_ac_in%2FEZsy6qWuivtDnANIG73iHjIBjMSoojcIV0NULXV-yiuiIg%3Fe%3DqTasa8)
 
 ###3. 准备数据
 准备自己的视频数据,至少要5个视频，视频中有明显的人的口型和声音。放入`data/original_data`目录下
 
 ###4.预处理数据
 ```bash
-python preprocess.py --ngpu 1 --data_root ./data/original_data --preprocessed_root ./data/preprocessed_root --batch_size 8
+python preprocess.py --ngpu 1 --data_root E:/Projects/wav2lip_train/data/original_data --preprocessed_root E:/Projects/wav2lip_train/data/preprocessed_root --batch_size 8
 ```
 data_root为原始视频地址，preprocessed_root为处理完的视频存放的位置
 获取对应的文件列表并更新到filelists/train.txt和filelists/eval.txt。只保存对应的视频名称即可。
@@ -62,7 +62,7 @@ print("\n".join(result_list))
 ###5.训练
 执行下面的命令进行训练
 ```bash
-python wav2lip_train.py --data_root ./data/preprocessed_root/original_data --checkpoint_dir ./savedmodel --syncnet_checkpoint_path ./checkpoints/lipsync_expert.pth
+python wav2lip_train.py --data_root ./data/preprocessed_root/data --checkpoint_dir ./savedmodel --syncnet_checkpoint_path ./checkpoints/lipsync_expert.pth
 ```
 
 ###6.模型预测

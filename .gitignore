@@ -2,8 +2,11 @@
 /Wav2Lip/
 /wave2lip/
 /checkpoints/lipsync_expert.pth
-/face_detection/sfd/s3fd.pth
+/data/face_detection/detection/sfd/s3fd.pth
 /checkpoints/wav2lip.pth
 /checkpoints/wav2lip_gan.pth
-/face_detection/sfd/s3fd.pth
+/data/face_detection/detection/sfd/s3fd.pth
 /checkpoints/visual_quality_disc.pth
+/data/original_data/*
+/data/preprocessed_root/*
+/savedmodel/

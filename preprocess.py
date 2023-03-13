@@ -5,8 +5,8 @@ if sys.version_info[0] < 3 and sys.version_info[1] < 2:
 
 from os import listdir, path
 
-if not path.isfile('face_detection/sfd/s3fd.pth'):
-	raise FileNotFoundError('Save the s3fd model to face_detection/sfd/s3fd.pth \
+if not path.isfile('data/face_detection/detection/sfd/s3fd.pth'):
+	raise FileNotFoundError('Save the s3fd model to data/face_detection/detection/sfd/s3fd.pth \
 							before running this script!')
 
 import multiprocessing as mp
@@ -91,7 +91,7 @@ def mp_handler(job):
 def main(args):
 	print('Started processing for {} with {} GPUs'.format(args.data_root, args.ngpu))
 
-	filelist = glob(path.join(args.data_root, '*/*.mp4'))
+	filelist = glob(path.join(args.data_root, '*.mp4'))
 
 	jobs = [(vfile, args, i%args.ngpu) for i, vfile in enumerate(filelist)]
 	p = ThreadPoolExecutor(args.ngpu)
