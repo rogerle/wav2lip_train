@@ -42,6 +42,7 @@ git clone https://gitee.com/sparkle__code__guy/wave2lip
 准备自己的视频数据,至少要5个视频，视频中有明显的人的口型和声音。放入`data/original_data`目录下
 
 ###4.预处理数据
+
 ```bash
 python preprocess.py --ngpu 1 --data_root E:/Projects/wav2lip_train/data/original_data --preprocessed_root E:/Projects/wav2lip_train/data/preprocessed_root --batch_size 8
 ```
