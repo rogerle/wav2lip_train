@@ -277,6 +277,7 @@ def main():
 	for i, (img_batch,exist_head_batch, mel_batch, frames, coords) in enumerate(tqdm(gen,
 											total=int(np.ceil(float(len(mel_chunks))/batch_size)))):
 		if i == 0:
+			print(args.checkpoint_path)
 			model = load_model(args.checkpoint_path)
 			print("Model loaded")
 

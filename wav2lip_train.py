@@ -46,7 +46,6 @@ class Dataset(object):
 
     def get_window(self, start_frame):
         start_id = self.get_frame_id(start_frame)
-        print ('start id {}'.start_id)
         vidname = dirname(start_frame)
 
         window_fnames = []
@@ -208,7 +207,7 @@ def train(device, model, train_data_loader, test_data_loader, optimizer,
         print('Starting Epoch: {}'.format(global_epoch))
         running_sync_loss, running_l1_loss = 0., 0.
         prog_bar = tqdm(enumerate(train_data_loader))
-        for step, (x, indiv_mels, mel, gt) in prog_bar:
+        for step, (x, indiv_mels, mel, gt) in enumerate(train_data_loader):
             model.train()
             optimizer.zero_grad()
 
@@ -261,7 +260,7 @@ def train(device, model, train_data_loader, test_data_loader, optimizer,
         
 
 def eval_model(test_data_loader, global_step, device, model, checkpoint_dir):
-    eval_steps = 700
+    eval_steps = 40
     print('Evaluating for {} steps'.format(eval_steps))
     sync_losses, recon_losses = [], []
     step = 0
